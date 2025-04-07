@@ -1,0 +1,12 @@
+source leaprc.protein.ff14SB
+source leaprc.gaff
+set default PBRadii mbondi2
+loadamberparams JZ4.frcmod
+pdbProt = loadpdb 3htb_cleaned_protonated_fixed.pdb
+lig = loadmol2 JZ4.mol2
+comp = combine{pdbProt lig}
+saveAmberParm comp 3htb_jz4_complex.prmtop 3htb_jz4_complex.inpcrd
+saveAmberParm pdbProt 3htb.prmtop 3htb.inpcrd
+saveAmberParm lig jz4.prmtop jz4.inpcrd
+savepdb comp 3htb_jz4_complex.pdb
+quit
