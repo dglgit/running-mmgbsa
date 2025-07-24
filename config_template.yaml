@@ -1,0 +1,51 @@
+# MMGBSA/MMPBSA Pipeline Configuration Template
+# Copy this file and modify the parameters as needed
+
+# Input files (only protein and ligand required - complex created automatically)
+input:
+  protein_file: "protein.pdb"      # Protein PDB file
+  ligand_file: "ligand.mol2"       # Ligand file (mol2, pdb, etc.)
+
+# Output settings
+output:
+  output_dir: "results/"           # Output directory for results
+  method: "mmgbsa"                 # Analysis method: "mmgbsa" or "mmpbsa"
+
+# Simulation parameters
+simulation:
+  temperature: 300                 # Temperature in Kelvin
+  pressure: 1.0                    # Pressure in atm
+  equilibration_steps: 10000       # Number of equilibration steps
+  production_steps: 2000000        # Number of production steps
+  trajectory_interval: 1000        # Save trajectory every N steps
+  salt_concentration: 0.15         # Salt concentration in M
+
+# Analysis parameters
+analysis:
+  start_frame: 1                   # First frame to analyze
+  end_frame: 2000                  # Last frame to analyze
+  frame_interval: 1                # Analyze every Nth frame
+
+# Advanced settings (optional)
+advanced:
+  # Force field settings
+  protein_forcefield: "ff14SB"     # Protein force field
+  ligand_forcefield: "gaff"        # Ligand force field
+  solvent_model: "OBC2"            # Implicit solvent model
+  
+  # Integration settings
+  timestep: 0.002                  # Integration timestep in picoseconds
+  friction: 1.0                    # Friction coefficient (1/ps)
+  
+  # Constraints
+  constraints: "HBonds"            # Bond constraints
+  
+  # Non-bonded settings
+  cutoff: 1.0                      # Non-bonded cutoff in nm
+  switch_distance: 0.8             # Switch distance in nm
+
+# Notes:
+# - The complex will be created automatically from protein and ligand
+# - Protein will be protonated and charged using AmberTools
+# - Ligand will be processed for proper charging
+# - All intermediate files are stored in work/ subdirectory 

@@ -1,9 +1,0 @@
-source leaprc.protein.ff14SB
-source leaprc.gaff
-set default PBRadii mbondi2
-pdbProt = loadpdb 3htb_cleaned_protonated_fixed.pdb
-saveAmberParm pdbProt 3htb.prmtop 3htb.inpcrd
-saveAmberParm pdbProt 3htb.prmtop 3htb.inpcrd
-saveAmberParm lig jz4.prmtop jz4.inpcrd
-savepdb comp 3htb_jz4_complex.pdb
-quit

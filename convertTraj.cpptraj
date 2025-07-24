@@ -1,6 +1,0 @@
-parm 3htb_jz4_complex.prmtop 
-parm 3htb_jz4_complex.prmtop [top1]
-trajin /Users/linair23/Desktop/projects/md/testing-mmpbsa/complex6_salted_traj.dcd 1 last 20
-trajout complex6_salted_traj.mdcrd [top1]
-run 
-quit
